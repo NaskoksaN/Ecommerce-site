@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="online.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="/online.js"></script>
+    <title>Online shop</title>
+</head>
+<body>
+    <div class="site">
+        <div class="product-list">
+            <div class="product-item">
+                <div class="product-content">
+                   
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/niq-milva-sapun-s-ekstrakt-i-cvqt-neven.jpg" alt="Продукт 1">
+                <div class="buttons">
+                    <button class="add-btn" id="add-Btn">+</button>
+                    <button class="remove-btn" id="remove-Btn">-</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-content">
+                    
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/katranen-sapun-s-bilki-shest-nula-g-niya-milva.jpg"
+                    alt="Продукт 2">
+                    <div class="buttons">
+                        <button class="add-btn" id="add-Btn">+</button>
+                        <button class="remove-btn" id="remove-Btn">-</button>
+                    </div>
+            </div>
+            <div class="product-item">
+                <div class="product-content">
+                
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/sapun-za-problemna-koja-i-pypki-smradlika.jpg" alt="Продукт 3">
+                <div class="buttons">
+                    <button class="add-btn" id="add-Btn">+</button>
+                    <button class="remove-btn" id="remove-Btn">-</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-content">
+                 
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/detski-toaleten-sapun-s-byala-kaolinova-huma.jpg"
+                    alt="Продукт 3">
+                    <div class="buttons">
+                        <button class="add-btn" id="add-Btn">+</button>
+                        <button class="remove-btn" id="remove-Btn">-</button>
+                    </div>
+            </div>
+            <div class="product-item">
+                <div class="product-content">
+                   
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/nia-milva-sapun-s-bqla-kaolinova-huma.jpg" alt="Продукт 3">
+                <div class="buttons">
+                    <button class="add-btn" id="add-Btn">+</button>
+                    <button class="remove-btn" id="remove-Btn">-</button>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-content">
+                    
+                </div>
+                <img src="https://static.framar.bg/thumbs/6/products/herbal-soap-with-zeolite-and-garlic.jpg" alt="Продукт 3">
+                <div class="buttons">
+                    <button class="add-btn" id="add-Btn">+</button>
+                    <button class="remove-btn" id="remove-Btn">-</button>
+                </div>
+            </div>
+        </div>
+        <div class="order-list" >
+            <h1>Лист на поръчката</h1>
+            <ul class="order-items" id="ordered-items">
+                
+            </ul>
+            <p id="total-sum">Сума на поръчката: 0.00 лв.</p>
+            <form class="order-form">
+                <label for="email">Е-майл</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="fullname">Две имена</label>
+                <input type="text" id="fullname" name="fullname" required>
+    
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="0888888888" required>
+                
+                <label for="address">Адрес за доставка</label>
+                <input type="text" id="address" name="address" required>
+    
+                <button type="submit" id="order-btn">Направи поръчка</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

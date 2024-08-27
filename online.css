@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+    width: 30%;
+    height: auto;
+}
+html {
+    font: 18px/1.5 'PT Sans', sans-serif; 
+}
+
+body{
+    max-width: 1920px;
+    overflow: hidden noneoutside;
+}
+
+.site{
+    width: 100%;
+    display: flex;
+    gap: 3em;
+}
+/*-----------------------------scrol---------------*/
+
+.product-list{
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    flex: 1 1 40%;
+    background-color: #8d9b6a;
+}
+.product-item{
+    display: flex;
+    flex: 1 1 100%;
+    border: 2px solid gainsboro;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 1em 1em ;
+    background-color: #E8DFE0;
+}
+.product-content p:last-of-type{
+    font-weight: bold;
+}
+.product-content p:first-of-type{
+    padding: 1em 0;
+}
+.product-item button{
+    padding: 1em 2em;
+    font-size: 1rem;
+    background-color: #DAB692;
+}
+.product-item button:hover{
+    background-color: #DAB692;
+}
+
+/*---------------------------*/
+.order-list{
+    flex:1 1 45%;
+    background-color: #8d9b6a;;
+   
+}
+.order-list form{
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+}
+.order-list form input{
+    padding: 1em;
+}
+
+.buttons {
+    display: flex;
+    padding: 1em 2em;
+    gap: 1em;
+    flex-direction: column;
+}
+.add-btn, 
+.remove-btn {
+    flex: 1 1 auto;
+    font-size: 2em;
+    
+}
+.buttons button:hover{
+    background-color: #FF921C;
+}
+
+.order-list,
+.product-list{
+    border: 2px solid gainsboro;
+    padding: 2em 2em;
+    height: 100%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+.order-form{
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+.order-form input {
+    margin: 10px 0; /* Adds margin to inputs */
+    padding: 10px;
+    width: 100%; /* Ensures the inputs take full width */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+.order-form label {
+    margin: 10px 0; /* Adds margin to labels */
+    display: block; /* Ensures each label is on its own line */
+}
+
+
+#order-btn {
+    padding: 1em 2em;
+    margin: 1em 0;
+    background-color: #E8DFE0;
+    color: black;
+    border-radius: 0.3em;
+ }
+#order-btn:hover{
+    background-color: black;
+    color: #FF921C;
+ }
+.order-list #total-sum{
+    background-color: #E8DFE0;
+    padding: 1em 1em;
+    font-size: 1.5rem;
+    margin: 2em 0;
+    max-width: 50%;
+}
+
