@@ -8,46 +8,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputsElement = formElement.querySelectorAll('input');
     const pTotalSumEl = document.getElementById('total-sum');
 
-    const userId='Edfszh8A-729aYYG7';
+    const email = document.getElementById('email');
+    const fullName = document.getElementById('fullname');
+    const phone = document.getElementById('phone');
+    const address = document.getElementById('address');
 
     const productsObj = {};
     const broughtItems = {};
-    const personOrderData=[];
 
     initialLoadData();
 
     orderBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        inputsElement.forEach((element)=>{
-            const item= element.value;
-            personOrderData.push(item)
-        });
-        inputsElement.forEach((element)=>{
-            element.value='';
-        });
+        
+        if (!email.value.trim() || !fullName.value.trim() || !phone.value.trim() || !address.value.trim()) {
+            alert("Всички полета от данните с доставки са задължителни!");
+            return false;
+        }
+    
+
+        if (!broughtItems || Object.keys(broughtItems).length === 0) {
+            alert('Листа с покупките е празен');
+            return false;
+        }
+
         let sum = 0.0;
-        let orderText = '';
-        Object.entries(broughtItems).forEach(product=>{
+        const orderText = [];
+        Object.entries(broughtItems).forEach(product => {
             const [name, info] = product;
-            orderText=orderText.concat(`продукт => ${name} с бройки ${info.count} обща цена${info.tempPrice}\n`)
+            orderText.push(`продукт => ${name} с бройки ${info.count} обща цена ${info.tempPrice}`);
         });
-        orderText=orderText.concat(`данни за доставка => ${personOrderData.join(', ')}`)
-        //console.log(orderText);
-        emailjs.init(userId);
-        let mail = personOrderData[0];
-        console.log(mail);
-        orderItemsUl.innerHTML='';
-        for (let key in broughtItems) {
-            if (broughtItems.hasOwnProperty(key)) {
-              delete broughtItems[key];
-            }
-          }
-        console.log(broughtItems);
-        
-        pTotalSumEl.textContent='Сума на поръчката: 0.00 лв.'
-        
-        sendEmail(mail, orderText);
-    });    
+       
+        const orderDetails={
+            email: email.value,
+            fullName: fullName.value,
+            phone:phone.value,
+            address:address.value,
+            orderedItems : orderText.join('\n'),
+        }
+        const jsonOutput= JSON.stringify(orderDetails,null ,2);
+        console.log(jsonOutput);
+
+        //clear broughtItesm, inputs and UL
+        Object.keys(broughtItems).forEach(key => delete broughtItems[key]);
+        clearInput();
+        renderUpdatedList(orderItemsUl, Object.entries(broughtItems).map(([title, info]) => ({
+            productTitle: title,
+            count: info.count,
+            tempPrice: info.tempPrice
+        })));
+
+       
+    });
+
     addButtons.forEach(button => {
         button.addEventListener('click', () => {
             const productItem = button.closest('.product-item');
@@ -67,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     tempPrice: price
                 };
             }
-            console.log(broughtItems[productTitle].count);
+           
             renderUpdatedList(orderItemsUl, Object.entries(broughtItems).map(([title, info]) => ({
                 productTitle: title,
                 count: info.count,
@@ -109,20 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         });
     });
-
-    function sendEmail(email, textInfo) {
-        const orderText = 'Your collected order text here'; 
-        
-        emailjs.send(userId, 'YOUR_TEMPLATE_ID', {
-          to_email: email, // Replace with the recipient's email address
-          subject: 'Order Details',
-          message: textInfo
-        }).then(response => {
-          console.log('Email sent successfully:', response);
-        }).catch(error => {
-          console.error('Failed to send email:', error);
-        });
-      }
 
     function initialLoadData() {
 
@@ -181,6 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
         li.style.listStyle = 'none';
         li.appendChild(pOrder);
         return li;
+    }
+    function clearInput(){
+        email.value='';
+        fullName.value='';
+        phone.value='';
+        address.value='';
+
     }
 
 });
