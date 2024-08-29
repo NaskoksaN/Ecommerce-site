@@ -193,32 +193,27 @@
     </div>
 
     <script>
-        const items = document.querySelectorAll('.carousel-item'); // Select all carousel items
+        const items = document.querySelectorAll('.carousel-item'); 
         const prevButton = document.querySelector('.carousel-control-prev');
         const nextButton = document.querySelector('.carousel-control-next');
         let currentIndex = 0;
         
-        
-        // Initial display of the first item
         items[currentIndex].classList.add('active');
     
-        // Function to show the carousel item at the given index
         function showItem(index) {
-            items[currentIndex].classList.remove('active'); // Hide current item
-            currentIndex = (index + items.length) % items.length; // Ensure index loops within bounds
-            items[currentIndex].classList.add('active'); // Show the new item
+            items[currentIndex].classList.remove('active'); 
+            currentIndex = (index + items.length) % items.length; 
+            items[currentIndex].classList.add('active'); 
             console.log(currentIndex);
         }
     
-        // Previous button functionality
         prevButton.addEventListener('click', () => {
-            showItem(currentIndex - 1); // Move to the previous item
+            showItem(currentIndex - 1); 
             console.log(currentIndex);
         });
     
-        // Next button functionality
         nextButton.addEventListener('click', () => {
-            showItem(currentIndex + 1); // Move to the next item
+            showItem(currentIndex + 1); 
             console.log(currentIndex);
         });
     </script>
